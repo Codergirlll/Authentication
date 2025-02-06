@@ -13,18 +13,31 @@
 }
 
 body {
+<<<<<<< HEAD
   /* background: #0a0a0a; */
+=======
+  background: #0a0a0a;
+>>>>>>> b7beb8a2a5f00b463afd26ce143a502e1ffc3d2a
   min-height: 100vh;
 }
 
 .navbar {
+<<<<<<< HEAD
   /* position: fixed; */
+=======
+  position: fixed;
+>>>>>>> b7beb8a2a5f00b463afd26ce143a502e1ffc3d2a
   top: 0;
   left: 0;
   width: 100%;
   padding: 1.2rem 5%;
+<<<<<<< HEAD
   /* backdrop-filter: blur(12px); */
   background: #000;
+=======
+  backdrop-filter: blur(12px);
+  background: var(--glass-bg);
+>>>>>>> b7beb8a2a5f00b463afd26ce143a502e1ffc3d2a
   border-bottom: var(--border);
   z-index: 1000;
 }
