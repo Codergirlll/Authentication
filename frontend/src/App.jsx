@@ -10,11 +10,10 @@ function App() {
     return (
         <>
             <Navbar />
-            {/* <h1>Welcome to Frontend</h1> */}
             <Routes>
-                <Route path='/' element={Dashboard} />
-                <Route path='/login' element={Login} />
-                <Route path='/register' element={Register} />
+                <Route path='/' element={<Dashboard />} />
+                <Route path='/login' element={<Login />} />
+                <Route path='/register' element={<Register />} />
             </Routes>
         </>
     )

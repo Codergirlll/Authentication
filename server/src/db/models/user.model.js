@@ -6,6 +6,11 @@ const { JWT_SECRET } = process.env
 
 const UserSchema = new mongoose.Schema(
     {
+        username: {
+            type: String,
+            require: [true, "Please provide Username"],
+            // unique: true
+        },
         email: {
             type: String,
             require: [true, "Please provide Email Id"],
