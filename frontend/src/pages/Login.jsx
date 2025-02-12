@@ -22,8 +22,9 @@ function Login() {
         e.preventDefault()
         try {
             const response = await loginUser(loginData)
+            // let { token } = response.data
             console.log("response: ", response)
-
+            // localStorage.setItem('token', token);
             navigate('/')
 
         } catch (error) {

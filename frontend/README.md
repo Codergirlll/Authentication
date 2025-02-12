@@ -210,6 +210,8 @@ export default Register;
 
 ---
 
+
+
 #### 8. **Login Page**
 
 ##### **`src/pages/Login.jsx`**
@@ -275,25 +277,3 @@ const Dashboard = () => {
 
 export default Dashboard;
 ```
-
----
-
-### ✅ **Testing the App**
-
-1. Start the backend:
-
-```bash
-cd server
-npm start
-```
-
-2. Start the frontend:
-
-```bash
-cd ../frontend
-npm run dev
-```
-
-You now have a working MERN authentication system with JWT and bcrypt!
-
-Let me know if you need further enhancements or explanations. 🚀
