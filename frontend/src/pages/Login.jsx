@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import '../css/login.css';
-import { loginUser } from '../services/api';
+import { loginUser, welcomeUser } from '../services/api';
 import { useNavigate } from 'react-router-dom';
 
 function Login() {
@@ -22,9 +22,16 @@ function Login() {
         e.preventDefault()
         try {
             const response = await loginUser(loginData)
-            // let { token } = response.data
             console.log("response: ", response)
+            let { token } = response.data
+
+
+            // // Authentication Through Localstorage
             // localStorage.setItem('token', token);
+
+            // Authentication Through Cookies
+            const responseWelcome = await welcomeUser(token)
+            console.log("responseWelcome: ", responseWelcome)
             navigate('/')
 
         } catch (error) {

@@ -1,10 +1,13 @@
-// import { useEffect } from "react";
-// import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { welcomeUser } from "../services/api";
 
 function Dashboard() {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
+
+    // // Auth through loacalstorage
     // useEffect(() => {
 
     //     const token = localStorage.getItem('token')
@@ -13,6 +16,21 @@ function Dashboard() {
     //         navigate('/login')
     //     }
     // }, [navigate])
+
+
+    // Auth through cookies
+
+
+    useEffect(() => {
+
+        const verifyUser = async () => {
+            const response = await welcomeUser()
+
+            console.log("response: ", response)
+        }
+        verifyUser();
+
+    }, [navigate])
 
     return (
         <div>

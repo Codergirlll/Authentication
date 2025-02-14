@@ -27,3 +27,30 @@ export const loginUser = async (userData) => {
         throw error.response.data;
     }
 }
+
+
+export const welcomeUser = async (token) => {
+    try {
+        // console.log("userData: ", userData)
+        const response = await axios.post(
+            // `${CommonURL}/welcome`,
+            // {
+            //     // withCredentials: true
+            // },
+            // {
+            //     headers: {
+            //         authorization: `Bearer ${token}`,
+            //     }
+            // }
+
+
+            `${CommonURL}/welcome`,
+            {},  // Request body
+            { withCredentials: true }
+        )
+
+        return response
+    } catch (error) {
+        throw error.response.data;
+    }
+}
