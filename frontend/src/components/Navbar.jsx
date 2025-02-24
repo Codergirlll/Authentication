@@ -1,10 +1,13 @@
 
 
 // import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import '../css/navbar.css'
+import { logoutUser } from '../services/api'
 
 function Navbar() {
 
+    const navigate = useNavigate()
 
     // // for LocalStoreage
     // const navigate = useNavigate()
@@ -16,8 +19,11 @@ function Navbar() {
 
 
     // for cookies 
-    const handleLogout = () => {
+    const handleLogout = async () => {
 
+        await logoutUser()
+        console.log(`Logout successfully`)
+        navigate('/login')
     }
 
 

@@ -77,8 +77,13 @@ exports.Login = async (req, res) => {
             });
         }
 
-        // set cookies
-        res.cookie("token", token)
+        // Set cookie
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "staging",
+            sameSite: "Strict",
+            maxAge: 24 * 60 * 60 * 1000, // 1 day expiration
+        });
 
         return res.status(200).json({
             status: true,
@@ -109,6 +114,31 @@ exports.Welcome = async (req, res) => {
 
     } catch (error) {
         console.error("Error occurred while Welocome: ", error);
+        return res.status(500).json({
+            status: false,
+            message: "Internal server error",
+            error: error.message,
+        });
+    }
+}
+
+
+exports.Logout = async (req, res) => {
+    console.log("Logout: ", res.cookie)
+    try {
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: process.env.NODE_ENV === "staging",
+            sameSite: "Strict",
+        });
+
+        return res.status(200).json({
+            status: true,
+            message: "User logged out successfully",
+        });
+
+    } catch (error) {
+        console.error("Error occurred while logging out: ", error);
         return res.status(500).json({
             status: false,
             message: "Internal server error",

@@ -19,8 +19,6 @@ function Dashboard() {
 
 
     // Auth through cookies
-
-
     useEffect(() => {
 
         const verifyUser = async () => {

@@ -20,7 +20,9 @@ export const loginUser = async (userData) => {
 
     try {
         console.log("userData: ", userData)
-        const response = await axios.post(`${CommonURL}/login`, userData)
+        const response = await axios.post(`${CommonURL}/login`, userData, {
+            withCredentials: true,  // Ensure cookies are stored
+        });
 
         return response
     } catch (error) {
@@ -29,22 +31,25 @@ export const loginUser = async (userData) => {
 }
 
 
-export const welcomeUser = async (token) => {
+export const welcomeUser = async () => {
     try {
-        // console.log("userData: ", userData)
         const response = await axios.post(
-            // `${CommonURL}/welcome`,
-            // {
-            //     // withCredentials: true
-            // },
-            // {
-            //     headers: {
-            //         authorization: `Bearer ${token}`,
-            //     }
-            // }
-
-
             `${CommonURL}/welcome`,
+            {},  // Request body
+            { withCredentials: true }
+        )
+
+        return response
+    } catch (error) {
+        throw error.response.data;
+    }
+}
+
+
+export const logoutUser = async () => {
+    try {
+        const response = await axios.post(
+            `${CommonURL}/logout`,
             {},  // Request body
             { withCredentials: true }
         )
